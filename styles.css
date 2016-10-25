@@ -1,0 +1,169 @@
+﻿@font-face {
+  font-family: 'Yoshi';
+  src: url('yoshi.ttf') format('truetype');
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Yoshi';
+    
+    background: #7cd3bc;
+    background: -moz-linear-gradient(top,  #7cd3bc 0%, #d8fff9 61%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7cd3bc), color-stop(61%,#d8fff9));
+    background: -webkit-linear-gradient(top,  #7cd3bc 0%,#d8fff9 61%);
+    background: -o-linear-gradient(top,  #7cd3bc 0%,#d8fff9 61%);
+    background: -ms-linear-gradient(top,  #7cd3bc 0%,#d8fff9 61%);
+    background: linear-gradient(to bottom,  #7cd3bc 0%,#d8fff9 61%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7cd3bc', endColorstr='#d8fff9',GradientType=0 );
+
+
+    image-rendering: optimizeSpeed;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -o-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: pixelated;
+    image-rendering: optimize-contrast;
+    -ms-interpolation-mode: nearest-neighbor;
+}
+
+.yoshi-container {
+    width: 85%;
+    position: absolute;
+    bottom: 170px;
+    left: 5%;
+}
+
+.yoshi {
+    width: 66px; /* 33px */
+    height: 72px; /* 36px */
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.yoshi-img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-image: url('yoshi.png');
+    background-position: -198px 0; /* -99px 0; */
+    background-size: 1676px 1520px; /* 838px 760px */
+    animation-timing-function: steps(1, end);
+}
+
+.walk {
+    transition: left 1000ms ease-in-out;
+}
+
+.yoshi.walk .yoshi-img {
+    background-position-y: -178px;
+    animation-duration: 600ms;
+    animation-name: walk-anim;
+    animation-iteration-count: infinite;
+}
+
+.run {
+    transition: left 800ms ease-in-out;
+}
+
+.yoshi.run {
+    width: 72px;
+}
+
+.yoshi.run .yoshi-img {
+    background-position-y: -178px;
+    animation-duration: 200ms;
+    animation-name: run-anim;
+    animation-iteration-count: infinite;
+}
+
+.jump {
+    transition: left 800ms cubic-bezier(0.42, 0, 0.85, 1);
+}
+
+.yoshi.jump {
+    animation-duration: 800ms;
+    animation-name: jump;
+    animation-iteration-count: 5;
+}
+
+.yoshi.jump .yoshi-img {
+    animation-duration: 800ms;
+    animation-name: jump-anim;
+    animation-iteration-count: 5;
+}
+
+.yoshi.die .yoshi-img {
+    background-position: -1434px -1176px; /* -717px -588px */
+}
+
+.yoshi.win {
+    height: 76px; /* 38px */
+    animation-duration: 800ms;
+    animation-name: win;
+    animation-iteration-count: infinite;
+}
+
+.yoshi.win .yoshi-img {
+    animation-duration: 800ms;
+    animation-name: win-anim;
+    animation-iteration-count: infinite;
+}
+
+.ground {
+    width: 6400px; /* 3200px; */
+    height: 200px; /* 100px */
+    background-image: url('ground.png');
+    background-size: 64px 200px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1px;
+}
+
+.background {
+    width: 3200px;
+    height: 726px; /* 363px */
+    background-image: url('bg.png');
+    background-size: 1024px 726px; /* 512px 363px */
+    position: absolute;
+    left: 0;
+    bottom: 150px;
+    z-index: -2;
+}
+
+.start {
+    position: relative;
+    font-family: Yoshi;
+    font-size: 16px;
+    background-color: #286048;
+    color: white;
+    padding: 8px;
+    border: 3px ridge #785028;
+}
+
+.start:active {
+    background-color: #204C39;
+}
+
+.start:disabled {
+    color: #BBBBBB;
+}
+
+.message {
+    position: absolute;
+    width: 80%;
+    height: 20px;
+    left: 10%;
+    top: 20px;
+    text-align: center;
+    z-index: -1;
+}
